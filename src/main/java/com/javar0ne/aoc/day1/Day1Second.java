@@ -2,9 +2,9 @@ package com.javar0ne.aoc.day1;
 
 import com.javar0ne.aoc.base.SecondQuestion;
 
-import java.awt.*;
-import java.util.*;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
@@ -84,15 +84,13 @@ public class Day1Second extends SecondQuestion {
     }
 
     private String matchDigitsSpelled(String possibleDigit) {
-        Map<Object, Integer> collected = digits.keySet()
+        return digits.keySet()
             .stream()
             .filter(possibleDigit::contains)
-            .map(digit -> Map.entry(digit, possibleDigit.indexOf(digit)))
-            .sorted((entry1,entry2) -> entry1.getValue() > entry2.getValue())
-            .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
-
-
-
-        return null;
+            .map(digit -> Map.entry(digit, possibleDigit.lastIndexOf(digit)))
+            .sorted(Map.Entry.comparingByValue())
+            .map(Map.Entry::getKey)
+            .map(digits::get)
+            .collect(Collectors.joining());
     }
 }
