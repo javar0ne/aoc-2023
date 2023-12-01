@@ -1,13 +1,13 @@
-package com.javar0ne.aoc;
+package com.javar0ne.aoc.base;
 
 import java.io.IOException;
-import java.io.InputStream;
+import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.Scanner;
 
 public abstract class QuestionSolver {
     private final Integer day;
@@ -20,13 +20,21 @@ public abstract class QuestionSolver {
 
 
     protected List<String> getInput() {
-        String filePath = "classpath:input/day" +
+        List<String>  content = new ArrayList<>();
+        String filePath = "input/day" +
             day +
             "/" +
-            questionType.getText();
+            questionType.getText() +
+            ".txt";
 
-        Path path = Paths.get(filePath);
-        List<String> content = Files.readAllLines(path);
+        try {
+            Path file = Paths.get(ClassLoader.getSystemResource(filePath).toURI());
+            content.addAll(Files.readAllLines(file));
+        } catch (URISyntaxException | IOException e) {
+            throw new RuntimeException(String.format("Exception while reading file %s", filePath));
+        }
+
+        return content;
     }
 
     protected abstract Optional<?> solve();

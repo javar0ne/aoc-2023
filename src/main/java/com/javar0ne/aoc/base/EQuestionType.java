@@ -1,4 +1,4 @@
-package com.javar0ne.aoc;
+package com.javar0ne.aoc.base;
 
 public enum EQuestionType {
     FIRST("first"),
