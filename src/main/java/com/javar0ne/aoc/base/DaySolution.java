@@ -13,12 +13,12 @@ public abstract class DaySolution<F extends FirstQuestion, S extends SecondQuest
 
     protected abstract S getSecondQuestionSolver();
 
-    public Optional<?> solveFirst() {
+    public Optional<Integer> solveFirst() {
         return getFirstQuestionSolver()
             .solve();
     }
 
-    public Optional<?> solveSecond() {
+    public Optional<Integer> solveSecond() {
         return getSecondQuestionSolver()
             .solve();
     }

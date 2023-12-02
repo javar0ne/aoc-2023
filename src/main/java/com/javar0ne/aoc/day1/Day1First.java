@@ -37,7 +37,7 @@ public class Day1First extends FirstQuestion {
     }
 
     @Override
-    public Optional<?> solve() {
+    public Optional<Integer> solve() {
         int calibrationsSum = getInput()
             .stream()
             .map(calibration -> {

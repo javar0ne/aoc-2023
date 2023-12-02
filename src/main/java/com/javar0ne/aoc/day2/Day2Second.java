@@ -38,7 +38,7 @@ public class Day2Second extends SecondQuestion {
     }
 
     @Override
-    public Optional<?> solve() {
+    public Optional<Integer> solve() {
         List<String> input = getInput();
 
         int sum = input

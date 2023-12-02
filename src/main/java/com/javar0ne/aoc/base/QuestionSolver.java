@@ -37,5 +37,5 @@ public abstract class QuestionSolver {
         return content;
     }
 
-    protected abstract Optional<?> solve();
+    protected abstract Optional<Integer> solve();
 }
