@@ -94,16 +94,16 @@ public class Day2First extends FirstQuestion {
     private boolean isGameCubeValid(String gameCube) {
         int cubeNumber = Integer.parseInt(gameCube.split(" ")[1]);
 
-        int numberToCompare;
+        int numberOfCubesToCompare;
 
         if(gameCube.contains(RED)) {
-            numberToCompare = RED_CUBES;
+            numberOfCubesToCompare = RED_CUBES;
         } else if(gameCube.contains(GREEN)) {
-            numberToCompare = GREEN_CUBES;
+            numberOfCubesToCompare = GREEN_CUBES;
         } else {
-            numberToCompare = BLUE_CUBES;
+            numberOfCubesToCompare = BLUE_CUBES;
         }
 
-        return cubeNumber <= numberToCompare;
+        return cubeNumber <= numberOfCubesToCompare;
     }
 }
