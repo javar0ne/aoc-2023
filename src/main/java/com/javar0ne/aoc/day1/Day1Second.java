@@ -66,7 +66,6 @@ public class Day1Second extends SecondQuestion {
 
                 return number.toString();
             })
-            .peek(System.out::println)
             .mapToInt(number -> {
                 String s = number.charAt(0) + "";
 
